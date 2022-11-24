@@ -1,33 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
- 
-@jesusgortarez 
-jesusgortarez
-/
-backChatTraductor
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-backChatTraductor/.gitignore
-@jesusgortarez
-jesusgortarez first commit
-Latest commit e702fcb 20 minutes ago
- History
- 1 contributor
-104 lines (76 sloc)  1.57 KB
-
 # Logs
 logs
 *.log
@@ -132,18 +102,3 @@ dist
 
 # TernJS port file
 .tern-port
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-backChatTraductor/.gitignore at main · jesusgortarez/backChatTraductor
