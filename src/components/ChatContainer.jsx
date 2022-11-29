@@ -55,12 +55,14 @@ export default function ChatContainer({ currentChat, socket }) {
       encryption: true,
     })
     .then((response) => {
-      //recupero el mensaje ya traducido
-      msg = response.data.data;
+
       //verifica que se guarde en el servidor
       if (response.data.status === false) {
         toast.error("Este mensaje no se guardara en la base de datos", toastOptions);
       }
+      else 
+            //recupero el mensaje ya traducido
+            msg = response.data.data;
     });
   
     //aquí envió el mensaje para el destinatario
