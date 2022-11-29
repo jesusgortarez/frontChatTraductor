@@ -5,11 +5,19 @@ import Logout from "./Logout";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { sendMessageRoute, recieveMessageRoute } from "../utils/APIRoutes";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function ChatContainer({ currentChat, socket }) {
   const [messages, setMessages] = useState([]);
   const scrollRef = useRef();
   const [arrivalMessage, setArrivalMessage] = useState(null);
+  const toastOptions = {
+    position: "bottom-right",
+    autoClose: 8000,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "dark",
+  };
 
   useEffect(async () => {
     const data = await JSON.parse(
@@ -49,8 +57,12 @@ export default function ChatContainer({ currentChat, socket }) {
     .then((response) => {
       //recupero el mensaje ya traducido
       msg = response.data.data;
+      //verifica que se guarde en el servidor
+      if (response.data.status === false) {
+        toast.error("Este mensaje no se guardara en la base de datos", toastOptions);
+      }
     });
-
+  
     //aquí envió el mensaje para el destinatario
     socket.current.emit("send-msg", {
       to: currentChat._id,
@@ -107,6 +119,7 @@ export default function ChatContainer({ currentChat, socket }) {
         })}
       </div>
       <ChatInput handleSendMsg={handleSendMsg} />
+      <ToastContainer />
     </Container>
   );
 }
